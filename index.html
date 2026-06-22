@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER: dark navy bar with title + search form -->
+  <header class="navbar">
+    <h1>🌤️ Weather App</h1>
+    <form id="searchForm">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name..."
+        required
+      >
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+  </header>
+
+  <main>
+
+    <!-- LOADING STATE: hidden until a fetch is in progress -->
+    <p id="loading" class="hidden">Loading...</p>
+
+    <!-- ERROR STATE: hidden until a city isn't found -->
+    <p id="errorMessage" class="hidden"></p>
+
+    <!-- HERO SECTION: current weather, teal background -->
+    <section class="hero">
+      <div id="weatherIcon" class="icon">☀️</div>
+      <h2 id="cityName">--</h2>
+      <p id="temperature" class="temp">--°C</p>
+      <p id="description">--</p>
+    </section>
+
+    <!-- STATS ROW: three equal columns -->
+    <section class="stats">
+      <div class="stat-box">
+        <p class="stat-label">Humidity</p>
+        <p id="humidity" class="stat-value">--%</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-label">Wind</p>
+        <p id="windSpeed" class="stat-value">-- km/h</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-label">UV Index</p>
+        <p id="uvIndex" class="stat-value">--</p>
+      </div>
+    </section>
+
+    <!-- FORECAST SECTION: filled in dynamically by JS -->
+    <section class="forecast">
+      <h3>5-Day Forecast</h3>
+      <div id="forecastContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- script goes last so the DOM above already exists when it runs -->
+  <script src="script.js"></script>
+</body>
+</html>

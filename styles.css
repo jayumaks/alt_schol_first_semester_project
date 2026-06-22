@@ -1,0 +1,204 @@
+/* ===== Base reset & font ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;   /* centers the app horizontally on the page */
+  padding: 20px;
+}
+
+/* The whole app is one card, max-width like the mockup, so it reads
+   well on desktop but also shrinks naturally on small screens */
+main {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Header / navbar ===== */
+.navbar {
+  background-color: #1A3C5E;
+  color: white;
+  padding: 16px 20px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px 12px 0 0;
+}
+
+.navbar h1 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.navbar form {
+  display: flex;
+  gap: 8px;
+}
+
+.navbar input {
+  flex: 1;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.navbar button {
+  background-color: #2E86AB;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;   /* required smooth hover transition */
+}
+
+.navbar button:hover {
+  background-color: #246a87;   /* slightly darker teal on hover */
+  transform: scale(1.03);
+}
+
+/* ===== Loading & error states ===== */
+.hidden {
+  display: none;
+}
+
+#loading {
+  text-align: center;
+  padding: 12px;
+  color: #555;
+}
+
+#errorMessage {
+  background-color: #ffe5e5;
+  color: #b30000;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* ===== Hero section ===== */
+.hero {
+  background-color: #2E86AB;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.hero .icon {
+  font-size: 3rem;
+}
+
+.hero h2 {
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+.hero .temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+/* ===== Stats row: three equal columns ===== */
+.stats {
+  display: flex;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-box {
+  flex: 1;                     /* equal-width columns */
+  padding: 14px 0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.stat-box:last-child {
+  border-right: none;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* ===== Forecast section ===== */
+.forecast {
+  padding: 16px 20px;
+}
+
+.forecast h3 {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Each day row — JS creates one of these per forecast day */
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;   /* required hover transition */
+}
+
+.forecast-row:hover {
+  background-color: #f7f9fb;
+}
+
+.forecast-day {
+  font-weight: bold;
+  flex: 1;
+}
+
+.forecast-icon {
+  flex: 1;
+  text-align: center;
+}
+
+.forecast-temps {
+  flex: 1;
+  text-align: right;
+}
+
+.forecast-low {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive: required media query under 480px ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  main, .navbar {
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .hero .temp {
+    font-size: 2rem;
+  }
+
+  .navbar form {
+    flex-direction: column;
+  }
+}
