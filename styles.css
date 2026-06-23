@@ -1,4 +1,4 @@
-/* ===== Base reset & font ===== */
+/*  Base reset & font  */
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +27,7 @@ main {
   background: #ffffff;
 }
 
-/* ===== Header / navbar ===== */
+/*  Header / navbar  */
 .navbar {
   background-color: #1A3C5E;
   color: white;
@@ -71,7 +71,7 @@ main {
   transform: scale(1.03);
 }
 
-/* ===== Loading & error states ===== */
+/*  Loading & error states  */
 .hidden {
   display: none;
 }
@@ -90,7 +90,7 @@ main {
   font-size: 0.9rem;
 }
 
-/* ===== Hero section ===== */
+/*  Hero section  */
 .hero {
   background-color: #2E86AB;
   color: white;
@@ -113,7 +113,7 @@ main {
   margin: 6px 0;
 }
 
-/* ===== Stats row: three equal columns ===== */
+/*  Stats row: three equal columns  */
 .stats {
   display: flex;
   text-align: center;
@@ -141,7 +141,7 @@ main {
   margin-top: 4px;
 }
 
-/* ===== Forecast section ===== */
+/*  Forecast section  */
 .forecast {
   padding: 16px 20px;
 }
@@ -195,7 +195,7 @@ main {
   font-size: 0.85rem;
 }
 
-/* ===== Responsive: required media query under 480px ===== */
+/*  Responsive: required media query under 480px  */
 @media (max-width: 480px) {
   body {
     padding: 0;
