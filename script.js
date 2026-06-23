@@ -79,7 +79,7 @@ async function getCoordinates(city) {
 // Note: uv_index_max is added to the daily params so the UV Index stat has real data,
 // since the brief's basic API reference table didn't include it but the design needs it
 async function getWeather(lat, lon) {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code,uv_index_max&timezone=auto`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weather_code,uv_index_max&timezone=auto`;
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -96,6 +96,7 @@ function displayCurrentWeather(current, daily, cityName, country) {
   document.getElementById("cityName").textContent = `${cityName}, ${country}`;
   document.getElementById("temperature").textContent = `${Math.round(current.temperature_2m)}°C`;
   document.getElementById("description").textContent = weather.description;
+  document.getElementById("feelsLike").textContent = ` · Feels like ${Math.round(current.apparent_temperature)}°C`;
   document.getElementById("weatherIcon").textContent = weather.icon;
   document.getElementById("humidity").textContent = `${current.relative_humidity_2m}%`;
   document.getElementById("windSpeed").textContent = `${current.wind_speed_10m} km/h`;
@@ -120,7 +121,7 @@ function displayForecast(daily) {
     row.innerHTML = `
       <span class="forecast-day">${dayName}</span>
       <span class="forecast-icon">${weather.icon}</span>
-      <span class="forecast-temps">${high}° <span class="forecast-low">${low}°</span></span>
+      <span class="forecast-temps"><span class="forecast-high">${high}°</span><span class="forecast-low">${low}°</span></span>
     `;
     forecastContainer.appendChild(row);
   }
